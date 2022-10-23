@@ -20,25 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="吃的苦中苦，方为人上人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="子灬丶逾">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="一、什么是线段树线段树是一颗平衡二叉树，其每个节点存储的都是一段区间，常用于解决区间问题(大区间问题的解可以转化成几个小区间问题的解)，比如区间和，区间乘积，区间最大最小值以及gcd等等。  二、线段树的基本操作2.1、为什么线段树建树需要开4倍的空间线段树不一定是一颗满二叉树也不一定是一颗完全二叉树，当区间的元素个数N满足$2^k&#x3D;N$的时候，其是一颗满二叉树，满二叉树的前k层的节点数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线段树入门">
+<meta property="og:url" content="http://example.com/2022/10/13/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="子灬丶逾">
-<meta property="og:description" content="吃的苦中苦，方为人上人">
+<meta property="og:description" content="一、什么是线段树线段树是一颗平衡二叉树，其每个节点存储的都是一段区间，常用于解决区间问题(大区间问题的解可以转化成几个小区间问题的解)，比如区间和，区间乘积，区间最大最小值以及gcd等等。  二、线段树的基本操作2.1、为什么线段树建树需要开4倍的空间线段树不一定是一颗满二叉树也不一定是一颗完全二叉树，当区间的元素个数N满足$2^k&#x3D;N$的时候，其是一颗满二叉树，满二叉树的前k层的节点数">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210520211956632.bmp?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MjU4MTM5,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200207092700688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21td3cxOTk0,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2022-10-13T11:43:34.000Z">
+<meta property="article:modified_time" content="2022-10-23T12:56:42.381Z">
 <meta property="article:author" content="子灬丶逾">
+<meta property="article:tag" content="线段树">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210520211956632.bmp?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MjU4MTM5,size_16,color_FFFFFF,t_70#pic_center">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/10/13/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/13/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/","path":"2022/10/13/线段树入门/","title":"线段树入门"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>子灬丶逾</title>
+<title>线段树入门 | 子灬丶逾</title>
   
 
 
@@ -68,7 +74,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">子灬丶逾</h1>
+      <p class="site-title">子灬丶逾</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">做一个攀登者，热情而自信，风雨无阻，一路前行</p>
@@ -128,7 +134,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -141,6 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">一、什么是线段树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">二、线段树的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%BB%BA%E6%A0%91%E9%9C%80%E8%A6%81%E5%BC%804%E5%80%8D%E7%9A%84%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.</span> <span class="nav-text">2.1、为什么线段树建树需要开4倍的空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E3%80%81%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">2.2.</span> <span class="nav-text">2.2、时间复杂度分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1%E3%80%81%E5%BB%BA%E6%A0%91%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1、建树的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1%E3%80%81%E5%8D%95%E7%82%B9%E6%9B%B4%E6%96%B0%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.1、单点更新的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2%E3%80%81%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.2.2、区间查询的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3%E3%80%81%E5%8C%BA%E9%97%B4%E6%9B%B4%E6%96%B0%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.2.3、区间更新的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3%E3%80%81%E5%8A%A8%E6%80%81%E5%BC%80%E7%82%B9%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.2.5.</span> <span class="nav-text">2.2.3、动态开点空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3%E3%80%81%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.3.</span> <span class="nav-text">2.3、代码模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1%E3%80%81%E4%BC%A0%E7%BB%9F%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1、传统线段树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2%E3%80%81%E5%8A%A8%E6%80%81%E5%BC%80%E7%82%B9"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2、动态开点</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -206,215 +213,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/23/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp4.qhimg.com%2Ft0106a1dbfef2b29cd3.jpg&refer=http%3A%2F%2Fp4.qhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1663390025&t=02f16ec414bc4a4bc0f0f629c3f5535a">
-      <meta itemprop="name" content="子灬丶逾">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="子灬丶逾">
-      <meta itemprop="description" content="吃的苦中苦，方为人上人">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 子灬丶逾">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/23/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" class="post-title-link" itemprop="url">滑动窗口</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-23 20:49:37 / 修改时间：20:56:31" itemprop="dateCreated datePublished" datetime="2022-10-23T20:49:37+08:00">2022-10-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/10/23/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" class="post-meta-item leancloud_visitors" data-flag-title="滑动窗口" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/18/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp4.qhimg.com%2Ft0106a1dbfef2b29cd3.jpg&refer=http%3A%2F%2Fp4.qhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1663390025&t=02f16ec414bc4a4bc0f0f629c3f5535a">
-      <meta itemprop="name" content="子灬丶逾">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="子灬丶逾">
-      <meta itemprop="description" content="吃的苦中苦，方为人上人">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 子灬丶逾">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/18/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">树状数组入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-18 23:26:57" itemprop="dateCreated datePublished" datetime="2022-10-18T23:26:57+08:00">2022-10-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-23 20:54:54" itemprop="dateModified" datetime="2022-10-23T20:54:54+08:00">2022-10-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/10/18/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="post-meta-item leancloud_visitors" data-flag-title="树状数组入门" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="一、什么是树状数组-binary-index-tree-BIT"><a href="#一、什么是树状数组-binary-index-tree-BIT" class="headerlink" title="一、什么是树状数组(binary index tree, BIT)"></a>一、什么是树状数组(binary index tree, BIT)</h3><p>树状数组是用来解决单点更新以及区间求和问题的一种数据结构，其定义$lowbit(x)$为$x$对应的二进制右边第一个1即其后面的0组成的一个数。数组$C$，每个元素$Ci$维护区间$(Ci - lowbit(Ci), Ci]$的累加和。</p>
-<p>$$<br>lowbit(110110_2) &#x3D; 10_2<br>$$</p>
-<h3 id="二、如何求前N项和"><a href="#二、如何求前N项和" class="headerlink" title="二、如何求前N项和"></a>二、如何求前N项和</h3><p>求前$N$项和可以分解成几个小区间进行求和，那么如何分呢？我们可以利用二进制来进行划分，比如求前$13(1101_2)$项的和，可以按照二进制划分成区间$(1100,1101]，(1000,1100],(0000, 1000]$这三个区间，规律就是每次减去$lowbit(x)$即可，这样最多减去$log_2^n$个lowbit就会等于0了，所以前N项和的时间复杂度是$O(logN)$</p>
-<h3 id="三、如何进行单点更新"><a href="#三、如何进行单点更新" class="headerlink" title="三、如何进行单点更新"></a>三、如何进行单点更新</h3><p>当更新某一个点$X$的时候，只需要更新哪些包含点$X$的区间所对应的点即可，那么哪些点维护的区间包含点$X$呢？可以观察如何这个图，可以发现从点$X$开始，不断加$lowbit()$等于的点所维护的区间都包含点$X$，而其他点所维护的区间均不包含$X$。可见最多也只需要更新$log_2^n$个区间，对于如何证明包含点$X$的区间只有$X$不断加上$lowbit()$等于的点维护，暂时不考虑</p>
-<p><img src="https://pic3.zhimg.com/v2-fbaeb49fdbad31a211fe37f068ca8bb0_1440w.jpg?source=172ae18b"></p>
-<h3 id="四、代码模板"><a href="#四、代码模板" class="headerlink" title="四、代码模板"></a>四、代码模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &amp; (-x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单点更新</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = x; i &lt; MAXN; i += <span class="built_in">lowbit</span>(i)) a[i] += val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求前n项和</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> val = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt; <span class="number">0</span>; i -= <span class="built_in">lowbit</span>(i)) val += a[i];</span><br><span class="line">    <span class="keyword">return</span> val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//区间求和</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">query</span>(r) - <span class="built_in">query</span>(l - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p>参考资料:</p>
-<p>1.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/93795692">https://zhuanlan.zhihu.com/p/93795692</a> 数组数组入门</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/13/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -428,13 +237,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 子灬丶逾">
+      <meta itemprop="name" content="线段树入门 | 子灬丶逾">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/13/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">线段树入门</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          线段树入门
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -481,7 +290,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="一、什么是线段树"><a href="#一、什么是线段树" class="headerlink" title="一、什么是线段树"></a>一、什么是线段树</h2><p>线段树是一颗平衡二叉树，其每个节点存储的都是一段区间，常用于解决区间问题(大区间问题的解可以转化成几个小区间问题的解)，比如区间和，区间乘积，区间最大最小值以及gcd等等。</p>
+        <h2 id="一、什么是线段树"><a href="#一、什么是线段树" class="headerlink" title="一、什么是线段树"></a>一、什么是线段树</h2><p>线段树是一颗平衡二叉树，其每个节点存储的都是一段区间，常用于解决区间问题(大区间问题的解可以转化成几个小区间问题的解)，比如区间和，区间乘积，区间最大最小值以及gcd等等。</p>
 <p><img src="https://img-blog.csdnimg.cn/20210520211956632.bmp?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MjU4MTM5,size_16,color_FFFFFF,t_70#pic_center" alt="线段树"></p>
 <h2 id="二、线段树的基本操作"><a href="#二、线段树的基本操作" class="headerlink" title="二、线段树的基本操作"></a>二、线段树的基本操作</h2><h3 id="2-1、为什么线段树建树需要开4倍的空间"><a href="#2-1、为什么线段树建树需要开4倍的空间" class="headerlink" title="2.1、为什么线段树建树需要开4倍的空间"></a>2.1、为什么线段树建树需要开4倍的空间</h3><p>线段树不一定是一颗满二叉树也不一定是一颗完全二叉树，当区间的元素个数N满足$2^k&#x3D;N$的时候，其是一颗满二叉树，满二叉树的前k层的节点数量为$2^{k+1}-1$，即总共需要2N-1个节点，当$2^k\neq N$,其构不成一颗满二叉树，假设$N&#x3D;2^k+1$，这样需要新开辟一层，最差需要新增$2^{k+1}$个节点，需要新增很多虚节点不存储任何东西，所以总共需要4N个节点</p>
 <p><img src="https://img-blog.csdnimg.cn/20200207092700688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21td3cxOTk0,size_16,color_FFFFFF,t_70" alt="线段树"></p>
@@ -505,7 +314,6 @@
 <p><a target="_blank" rel="noopener" href="https://www.shuzhiduo.com/A/MAzAvLvMJ9/">区间查询的时间复杂度证明</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52678569/article/details/124595544">线段树动态开点</a></p>
 
-      
     </div>
 
     
@@ -513,292 +321,61 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/username">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/channel_name">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag"># 线段树</a>
+          </div>
 
+        
 
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/12/leetcode%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83%E6%97%B6%E9%97%B4%E5%AE%89%E6%8E%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp4.qhimg.com%2Ft0106a1dbfef2b29cd3.jpg&refer=http%3A%2F%2Fp4.qhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1663390025&t=02f16ec414bc4a4bc0f0f629c3f5535a">
-      <meta itemprop="name" content="子灬丶逾">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="子灬丶逾">
-      <meta itemprop="description" content="吃的苦中苦，方为人上人">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 子灬丶逾">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/12/leetcode%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83%E6%97%B6%E9%97%B4%E5%AE%89%E6%8E%92/" class="post-title-link" itemprop="url">leetcode专题训练</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-12 13:02:17" itemprop="dateCreated datePublished" datetime="2022-10-12T13:02:17+08:00">2022-10-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-23 20:57:48" itemprop="dateModified" datetime="2022-10-23T20:57:48+08:00">2022-10-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E9%A1%B9%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">专项计划</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/10/12/leetcode%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83%E6%97%B6%E9%97%B4%E5%AE%89%E6%8E%92/" class="post-meta-item leancloud_visitors" data-flag-title="leetcode专题训练" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <table>
-<thead>
-<tr>
-<th align="left">目标</th>
-<th>目标1: Leetcode 500题 (hard 200, middle 200,easy 100) 目标二: 20个知识点</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>收益</strong></td>
-<td><strong>后续找工作不在需要花很长时间刷算法题</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"><strong>时间安排</strong></td>
-<td><strong>工作日 7:00-8.30 22:00-24:00(3.5h) 周末 8:00-11:30 14:00-17:00(6.5h) 一周30h</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"><strong>时间周期</strong></td>
-<td><strong>2022&#x2F;10&#x2F;12-2023&#x2F;03&#x2F;01</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"><strong>刷题方法</strong></td>
-<td><strong>五毒神掌</strong> <strong>1-1-5-30-快要面试了复习一遍 主动式反馈和被动式反馈</strong></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="刷题方法"><a href="#刷题方法" class="headerlink" title="刷题方法"></a>刷题方法</h3><p>刷多遍是为了熟练，精通一个领域分为三步，Chunk it up 切碎知识点，Deliberate Practicing刻意练习，Feedback(主动式反馈，被动式反馈)</p>
-<p><strong>第一周</strong>: <strong>线段树</strong></p>
-<p>线段树专题，训练内容单点更新，区间更新，lazy标记，动态开点</p>
-<table>
-<thead>
-<tr>
-<th>目标</th>
-<th>知识点: 动态开点，单点更新，区间更新， lazy标记</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>知识点</strong></td>
-<td>单点更新，区间查询，动态开点</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>题目</strong></td>
-<td><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/range-sum-query-mutable/">leetcode307</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/additive-number/">leetcode306</a></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>复盘</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>时间</strong></td>
-<td><strong>2022&#x2F;10&#x2F;12~2022&#x2F;10&#x2F;16</strong></td>
-<td></td>
-</tr>
-</tbody></table>
-<p><strong>复盘，思考与提升：</strong></p>
-<p><strong>成为某个领域的专家，切碎知识点(领域的技能数) + 刻意练习 + 反馈(主动反馈和被动反馈)<strong>；</strong>五毒神掌</strong>，同一个题刷多遍，提升熟练程度；刷题不能只想一种方法，应该思考<strong>所有的可能解</strong>，然后分析空间复杂度和时间复杂度；本周是算法训练的起始，不用高度紧张的去刷题，放松一点，本周刷题数量2题，博客文章一篇，距离20题的目标差距很远，刚起步也很正常，博客的质量以及对线段树的理解值得点赞，本周很不错，下周继续加油！:+1:</p>
-<p><strong>第二周</strong>： <strong>线段树</strong>，<strong>树状数组</strong></p>
-<p>上周线段树刷了两题，本周继续，目标18题，应该尽量涉及lazy标记，区间更新，线段树对最长上升子序列的优化等等</p>
-<table>
-<thead>
-<tr>
-<th>目标</th>
-<th>知识点: 动态开点，单点更新，区间更新， lazy标记</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>知识点</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>题目</strong></td>
-<td><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-of-smaller-numbers-after-self/">leetcode315</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-of-range-sum/">leetcode327</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/my-calendar-ii/">leetcode731</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-increasing-subsequence-ii/">leetcode2407</a></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>复盘</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>时间</strong></td>
-<td><strong>2022&#x2F;10&#x2F;17~2022&#x2F;10&#x2F;24</strong></td>
-<td></td>
-</tr>
-</tbody></table>
-<p><strong>复盘，思考与提升：</strong></p>
-<p>本周在工作中负责推进两个项目，前3天误会leader的意思了，有一个我主负责的项目没有推进，在leader的提醒下才继续推进的，<strong>每时每刻对自己主要负责的事情要有一个清晰的认识</strong>；浪费了太多时间，没想清楚自己应该做什么，应该怎么做，<strong>想清楚自己应该做什么，怎么做之后再去做，这样效率会更高，更好</strong>；<strong>对人的话，无论如何一定要尊重人家，无论人是非，也无需太在意别人对我的看法</strong>；对于刷题，本周就只有周一和周二晚上刷题了，<strong>比三天打鱼两天筛网还过分</strong>，还得继续加油；时间安排上面，目前是做<strong>地铁的时间</strong>用来提升之前准备的面经，晚上的<strong>学习时间有所欠缺</strong>，学习到晚上11:50直接休息; 值得表扬的是减肥，坚持一周4天晚上均没有吃晚餐，值得表扬，可以做的更好。</p>
-<p>本周的产出: <strong>4题</strong> + <strong>一篇</strong>树状数组文章 + <strong>按照原定计划复习</strong>，总体上来说还有很大的优化空间</p>
-<p><strong>第三周: 滑动窗口</strong></p>
-<p>本周的训练重点滑动窗口算法</p>
-<p><strong>第四周</strong>: <strong>dfs</strong>，<strong>bfs</strong></p>
-<p>第五周: </p>
-<p>参考资料:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ninechapter-algorithm/leetcode-linghu-templete/blob/master/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md">https://github.com/ninechapter-algorithm/leetcode-linghu-templete/blob/master/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93.md</a>  线段树题目总结</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/16/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp4.qhimg.com%2Ft0106a1dbfef2b29cd3.jpg&refer=http%3A%2F%2Fp4.qhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1663390025&t=02f16ec414bc4a4bc0f0f629c3f5535a">
-      <meta itemprop="name" content="子灬丶逾">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="子灬丶逾">
-      <meta itemprop="description" content="吃的苦中苦，方为人上人">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 子灬丶逾">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/16/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-08-16 12:53:28" itemprop="dateCreated datePublished" datetime="2022-08-16T12:53:28+08:00">2022-08-16</time>
-    </span>
-
-  
-    <span id="/2022/08/16/hello-world/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/12/leetcode%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83%E6%97%B6%E9%97%B4%E5%AE%89%E6%8E%92/" rel="prev" title="leetcode专题训练">
+                  <i class="fa fa-chevron-left"></i> leetcode专题训练
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/18/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="next" title="树状数组入门">
+                  树状数组入门 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -807,6 +384,8 @@
 
 
 
+
+    <div class="comments" id="valine-comments"></div>
 </div>
   </main>
 
@@ -853,7 +432,7 @@
 
 
 
-<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"vaTGYWydPWoD1I2ya5adAWNX-gzGzoHsz","appKey":"dgA0EQYONgn4RKuR5qcFOJ5E","serverURLs":"https://vatgywyd.lc-cn-n1-shared.com","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"enableQQ":true,"requiredFields":[],"el":"#valine-comments","path":"/"}</script>
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"vaTGYWydPWoD1I2ya5adAWNX-gzGzoHsz","appKey":"dgA0EQYONgn4RKuR5qcFOJ5E","serverURLs":"https://vatgywyd.lc-cn-n1-shared.com","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"enableQQ":true,"requiredFields":[],"el":"#valine-comments","path":"/2022/10/13/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
   NexT.utils.loadComments(CONFIG.valine.el)
